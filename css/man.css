@@ -1,0 +1,96 @@
+/* google font MULISH */
+@import url('https://fonts.googleapis.com/css2?family=Mulish:ital,wght@0,200..1000;1,200..1000&display=swap');
+
+:root {
+	--font-family: 'Mulish', sans-serif;
+	--white-color: hsl(0, 0%, 100%);
+	--back-color: hsl(0, 0%, 0%);
+	--light-white-color: hsla(0, 0%, 94%, 0.941);
+	--light-grey-color: hsla(0, 0%, 90%, 0.898);
+	--border-color: hsl(0, 0%, 83%);
+	--primary-color: hsl(217, 93%, 60%);
+	--secondary-color: hsl(0, 0%, 25%);
+	--overlay-color: hsla(0, 0%, 0%, 0.6);
+}
+* {
+	font-family: var(--font-family);
+	font-optical-sizing: auto;
+	font-style: normal;
+
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+.navbar {
+	display: flex;
+	align-items: center;
+	padding: 0.5em 1em;
+	justify-content: space-between;
+}
+.navbar :where(.nav-section, .search-form, .nav-logo) {
+	display: flex;
+	align-items: center;
+}
+.nav-section {
+	gap: 1em;
+}
+.navbar :where(.logo-iamge, .user-image) {
+	width: 32px;
+	height: 32px;
+	object-fit: cover;
+	cursor: pointer;
+	border-radius: 50%;
+}
+.navbar .nav-button {
+	border: 0;
+	width: 40px;
+	height: 40px;
+	cursor: pointer;
+	border-radius: 50%;
+	background-color: transparent;
+	transition: 300ms ease;
+	&:hover {
+		background-color: var(--light-grey-color);
+	}
+}
+.navbar .nav-button i {
+	display: flex;
+	font-size: 1.5rem;
+	align-items: center;
+	justify-content: center;
+}
+.navbar .nav-logo {
+	display: flex;
+	gap: 0.5em;
+	text-decoration: none;
+}
+.navbar .nav-logo .logo-text {
+	font-size: 1.25em;
+	color: var(--back-color);
+}
+.navbar .nav-center {
+	display: flex;
+	width: 100%;
+	justify-content: center;
+}
+.navbar .search-form {
+	max-width: 550px;
+	flex: 1;
+	height: 40px;
+}
+.navbar .search-form .search-input {
+	width: 100%;
+	height: 100%;
+	padding: 0 1em;
+	border-radius: 3.1em 0 0 3.1em;
+	outline: none;
+	font-size: 1em;
+	border: 1px solid var(--border-color);
+}
+.navbar .search-form .search-button {
+	width: auto;
+	padding: 0 1.25em;
+	border-radius: 0 3.1em 3.1em 0;
+	border: 1px solid var(--border-color);
+	border-left: 0;
+}
