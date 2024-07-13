@@ -12,6 +12,18 @@
 	--secondary-color: hsl(0, 0%, 25%);
 	--overlay-color: hsla(0, 0%, 0%, 0.6);
 }
+.container {
+	display: flex;
+	flex-direction: column;
+	min-height: 100vh;
+}
+header,
+.category-list {
+	position: sticky;
+	top: 0;
+	z-index: 10;
+	background-color: var(--white-color);
+}
 * {
 	font-family: var(--font-family);
 	font-optical-sizing: auto;
@@ -26,6 +38,7 @@
 	align-items: center;
 	padding: 0.5em 1em;
 	justify-content: space-between;
+	gap: 2em;
 }
 .navbar :where(.nav-section, .search-form, .nav-logo) {
 	display: flex;
@@ -96,6 +109,7 @@
 }
 .main-layout {
 	display: flex;
+	overflow-y: auto;
 }
 .main-layout .content-wrapper {
 	padding: 0 1em;
@@ -104,18 +118,83 @@
 }
 .content-wrapper .category-list {
 	display: flex;
-	gap: 0.75em;
-	padding: 0.75em 0 0.75em;
-	overflow-y: auto;
+	overflow-x: auto;
 	scrollbar-width: none;
+	gap: 0.75em;
+	padding: 0.75em 0 0.7em;
 }
 .category-list .category-button {
 	border: none;
 	cursor: pointer;
+	white-space: nowrap;
 	font-size: 0.9em;
 	font-weight: 500;
 	padding: 0.4em 0.75em;
 	border-radius: 0.5em;
-	white-space: nowrap;
 	background-color: var(--light-grey-color);
+	transition: 300ms ease;
+	&:hover {
+		background-color: var(--border-color);
+	}
+	&.active {
+		color: var(--white-color);
+		background-color: var(--back-color);
+		pointer-events: none;
+	}
+}
+.video-list .video-card {
+	text-decoration: none;
+}
+.content-wrapper .video-list {
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+	gap: 1em;
+	padding: 1.25em 0 4em;
+}
+.video-list .video-card .video-info {
+	display: flex;
+	gap: 0.7em;
+	padding: 0.7em 0.5em;
+}
+.video-list .video-card .thumbnail-container {
+	position: relative;
+}
+.video-list .video-card .duration {
+	position: absolute;
+	right: 0.66em;
+	bottom: 0.8em;
+	color: hsl(0, 0%, 100%);
+	font-size: 0.75em;
+	padding: 0 0.3em;
+	border-radius: 0.3em;
+	background-color: var(--overlay-color);
+}
+.video-list .video-card .thumbnail {
+	width: 100%;
+	border-radius: 0.5em;
+	aspect-ratio: 16 / 9;
+}
+.video-list .video-card .icon {
+	width: 36px;
+	height: 36px;
+	border-radius: 50%;
+}
+.video-list .video-card .title {
+	font-size: 1em;
+	font-weight: 600;
+	color: var(--back-color);
+	transition: 300ms ease;
+	display: -webkit-box;
+	-webkit-box-orient: vertical;
+	-webkit-line-clamp: 2;
+	&:hover {
+		color: var(--primary-color);
+	}
+}
+.video-list .video-card p {
+	font-size: 0.875em;
+	color: var(--secondary-color);
+}
+.video-list .video-card .channel-name {
+	margin: 0.25em 0 0.15em;
 }
