@@ -12,6 +12,20 @@
 	--secondary-color: hsl(0, 0%, 25%);
 	--overlay-color: hsla(0, 0%, 0%, 0.6);
 }
+
+* {
+	font-family: var(--font-family);
+	font-optical-sizing: auto;
+	font-style: normal;
+
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+body.sidebar-hidden .main-layout .sidebar {
+	width: 0;
+	padding: 0;
+}
 .container {
 	display: flex;
 	flex-direction: column;
@@ -23,15 +37,6 @@ header,
 	top: 0;
 	z-index: 10;
 	background-color: var(--white-color);
-}
-* {
-	font-family: var(--font-family);
-	font-optical-sizing: auto;
-	font-style: normal;
-
-	box-sizing: border-box;
-	margin: 0;
-	padding: 0;
 }
 .navbar {
 	display: flex;
@@ -114,6 +119,7 @@ header,
 .main-layout .sidebar {
 	width: 288px;
 	background-color: var(--white-color);
+	transition: 300ms cubic-bezier(0.445, 0.05, 0.55, 0.95);
 	padding: 0 0.7em 0;
 }
 .sidebar .link-container {
@@ -243,4 +249,17 @@ header,
 }
 .video-list .video-card .channel-name {
 	margin: 0.25em 0 0.15em;
+}
+/*  resposive media query code for small device  */
+@media screen and (max-width: 768px) {
+	.main-layout .sidebar {
+		position: absolute;
+		left: 0;
+		top: 0;
+		z-index: 20;
+		height: 100vh;
+	}
+	body.sidebar-hidden .main-layout .sidebar {
+		left: -288px;
+	}
 }
