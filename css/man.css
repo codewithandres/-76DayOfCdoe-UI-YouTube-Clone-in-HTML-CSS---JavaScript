@@ -111,6 +111,51 @@ header,
 	display: flex;
 	overflow-y: auto;
 }
+.main-layout .sidebar {
+	width: 288px;
+	background-color: var(--white-color);
+	padding: 0 0.7em 0;
+}
+.sidebar .link-container {
+	overflow-y: auto;
+	height: calc(100vh - 60px);
+	scrollbar-width: thin;
+	scrollbar-color: transparent transparent;
+	padding: 1em 0 2em;
+	&:hover {
+		scrollbar-color: hsla(0, 0%, 42%, 0.416) transparent;
+	}
+}
+.sidebar .section-separator {
+	height: 1px;
+	margin: 0.626em 0;
+	background-color: var(--light-grey-color);
+}
+.sidebar .link-section .link-item {
+	padding: 0.37em 0.75em;
+	margin-bottom: 0.25em;
+	color: var(--back-color);
+	border-radius: 0.5em;
+	font-size: 0.938em;
+	white-space: nowrap;
+	gap: 0.7em;
+	display: flex;
+	align-items: center;
+	text-decoration: none;
+	&:hover {
+		background-color: var(--light-grey-color);
+	}
+}
+.sidebar .link-section .link-item i {
+	font-size: 1.4em;
+}
+.sidebar .link-section .link-item .section-title {
+	font-size: 0.93em;
+	font-weight: 600;
+	color: var(--back-color);
+	margin: 1em 0 0.5em 0.5em;
+}
+
 .main-layout .content-wrapper {
 	padding: 0 1em;
 	overflow-x: hidden;
@@ -187,6 +232,7 @@ header,
 	display: -webkit-box;
 	-webkit-box-orient: vertical;
 	-webkit-line-clamp: 2;
+	line-clamp: 2;
 	&:hover {
 		color: var(--primary-color);
 	}
