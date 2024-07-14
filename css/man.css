@@ -2,17 +2,27 @@
 @import url('https://fonts.googleapis.com/css2?family=Mulish:ital,wght@0,200..1000;1,200..1000&display=swap');
 
 :root {
-	--font-family: 'Mulish', sans-serif;
-	--white-color: hsl(0, 0%, 100%);
-	--back-color: hsl(0, 0%, 0%);
-	--light-white-color: hsla(0, 0%, 94%, 0.941);
-	--light-grey-color: hsla(0, 0%, 90%, 0.898);
-	--border-color: hsl(0, 0%, 83%);
-	--primary-color: hsl(217, 93%, 60%);
-	--secondary-color: hsl(0, 0%, 25%);
-	--overlay-color: hsla(0, 0%, 0%, 0.6);
+	--white-color: #fff;
+	--black-color: #000;
+	--light-white-color: #f0f0f0;
+	--light-gray-color: #e5e5e5;
+	--border-color: #ccc;
+	--primary-color: #3b82f6;
+	--secondary-color: #404040;
+	--overlay-dark-color: rgba(0, 0, 0, 0.6);
 }
-
+/* Color variables for dark theme */
+body.dark-mode {
+	--white-color: #171717;
+	--black-color: #d4d4d4;
+	--light-white-color: #333;
+	--light-gray-color: #404040;
+	--border-color: #808080;
+	--secondary-color: #d4d4d4;
+}
+body {
+	background-color: var(--white-color);
+}
 * {
 	font-family: var(--font-family);
 	font-optical-sizing: auto;
@@ -72,6 +82,7 @@ header,
 	}
 }
 .container .nav-button i {
+	color: var(--light-gray-color);
 	display: flex;
 	font-size: 1.5rem;
 	align-items: center;
@@ -90,6 +101,7 @@ header,
 	display: flex;
 	width: 100%;
 	justify-content: center;
+	gap: 0.5em;
 }
 .navbar .search-form {
 	max-width: 550px;
@@ -103,7 +115,13 @@ header,
 	border-radius: 3.1em 0 0 3.1em;
 	outline: none;
 	font-size: 1em;
+	color: var(--black-color);
+	background-color: var(--white-color);
 	border: 1px solid var(--border-color);
+	transition: border 300ms ease;
+	&:focus {
+		border-color: var(--primary-color);
+	}
 }
 .navbar .search-form .search-button {
 	width: auto;
@@ -112,9 +130,13 @@ header,
 	border: 1px solid var(--border-color);
 	border-left: 0;
 }
+.navbar .nav-rigth .search-button {
+	display: none;
+}
 .main-layout {
 	display: flex;
 	overflow-y: auto;
+	scrollbar-color: #a6a6a6, transparent;
 }
 .main-layout .sidebar {
 	width: 288px;
@@ -187,6 +209,7 @@ header,
 	padding: 0.4em 0.75em;
 	border-radius: 0.5em;
 	background-color: var(--light-grey-color);
+	color: var(--black-color);
 	transition: 300ms ease;
 	&:hover {
 		background-color: var(--border-color);
@@ -256,6 +279,12 @@ header,
 }
 /*  resposive media query code for small device  */
 @media screen and (max-width: 768px) {
+	.navbar .nav-center {
+		display: none;
+	}
+	.navbar .nav-rigth .search-button {
+		display: block;
+	}
 	body.sidebar-hidden .main-layout .screen-overlay {
 		opacity: 0;
 		pointer-events: none;
