@@ -10,6 +10,7 @@
 	--primary-color: #3b82f6;
 	--secondary-color: #404040;
 	--overlay-dark-color: rgba(0, 0, 0, 0.6);
+	--font-body: 'Mulish', sans-serif;
 }
 /* Color variables for dark theme */
 body.dark-mode {
@@ -24,7 +25,7 @@ body {
 	background-color: var(--white-color);
 }
 * {
-	font-family: var(--font-family);
+	font-family: var(--font-body);
 	font-optical-sizing: auto;
 	font-style: normal;
 
